@@ -3,10 +3,9 @@ import aiosqlite
 import asyncio
 import logging
 from dat_b import quiz_data
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters.command import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
-from aiogram import F
 
 # Включаем логирование, чтобы не пропустить важные сообщения
 logging.basicConfig(level=logging.INFO)
@@ -21,10 +20,7 @@ dp = Dispatcher()
 # Зададим имя базы данных
 DB_NAME = 'quiz_bot.db'
 
-#DIST_DATA = 'data/quiz_data.json'
 
-#with open(DIST_DATA, 'r') as j:
-    #quiz_data = json.loads(j.read())
 
 def generate_options_keyboard(answer_options, right_answer):
     builder = InlineKeyboardBuilder()
