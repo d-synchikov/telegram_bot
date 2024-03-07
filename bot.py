@@ -47,9 +47,9 @@ async def right_answer(callback: types.CallbackQuery):
         message_id=callback.message.message_id,
         reply_markup=None
     )
-
-    await callback.message.answer("Верно!")
     current_question_index = await get_quiz_index(callback.from_user.id)
+    current_score = await get_user_score(callback.from_user.id)
+    await callback.message.answer(f"Ваш ответ: {quiz_data[current_question_index]['options'][correct_option]}\nВерно!")
     current_score = await get_user_score(callback.from_user.id)
     # Обновление номера текущего вопроса в базе данных
     current_question_index += 1
